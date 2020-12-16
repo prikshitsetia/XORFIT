@@ -16,9 +16,13 @@ export default class Nav extends Component {
                         <nav className="navbar navbar-expand-lg navbar-dark">
                             <ul className="navbar-nav ml-auto">
 
-                            <li className="nav-item">
-                                Home 
-                            </li>
+                            <Link to="/options">
+                                <li className="nav-item">
+                                    Home 
+                                </li>
+                                
+                            </Link>
+                           
                             <li className="nav-item">
                                 Dashboard 
                             </li>

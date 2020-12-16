@@ -43,3 +43,8 @@
     -webkit-transform: scale(1);
   }
 }
+
+.main {
+  background-repeat: no-repeat;
+  background-size: cover;
+}

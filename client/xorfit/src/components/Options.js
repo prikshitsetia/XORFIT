@@ -9,7 +9,8 @@ export default class Options extends Component {
              time:'',
              option:'meditation',
              showMedOptions:true,
-             medOption:'Mindfulness'
+             medOption:'Mindfulness',
+             yogaoption:'vrikshasan'
         }
     }
     
@@ -18,6 +19,12 @@ export default class Options extends Component {
         e.preventDefault();
 
         console.log(this.state)
+
+        if(this.state.option == "yoga"){
+            this.props.history.push('/yoga/:treePose')
+
+
+        }
        
     }
 
@@ -84,7 +91,7 @@ export default class Options extends Component {
 
                                     <div className="form-group m-1">
 
-                                    <label style={{float:"left"}}>What do yu want to work on?</label>
+                                    <label style={{float:"left"}}>What do you want to work on?</label>
                                     <select className="form-control" value={this.state.medOption} 
                                     onChange={(e)=>{this.setState({medOption:e.target.value})}}>
 
@@ -96,6 +103,24 @@ export default class Options extends Component {
 
 
                                     </div>
+
+                                )}
+
+                                {   !this.state.showMedOptions && (
+
+                                <div className="form-group m-1">
+
+                                <label style={{float:"left"}}>What do you want to work on?</label>
+                                <select className="form-control" value={this.state.yogaoption} 
+                                onChange={(e)=>{this.setState({yogaoption:e.target.value})}}>
+
+                                <option value="vrikshasan">Tree Pose</option>
+                                <option value="yoga">Chair Pose</option>
+                                    
+                                </select> 
+
+
+                                </div>
 
                                 )}
                                 

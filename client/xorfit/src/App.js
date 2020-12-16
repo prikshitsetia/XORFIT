@@ -1,18 +1,51 @@
 import './App.css';
 import Nav from './components/Nav'
 import Options from './components/Options'
+import Yoga from './components/Yoga'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+ 
+} from "react-router-dom";
+import React, { Component } from 'react'
+class  App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-              <Nav />
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       
+    }
+  }
+  
 
-      <div className="container-fluid">
+  render(){
 
-      </div>
-      <Options/>
-    </div>
-  );
+    return (
+      <Router>
+        <div className="App">
+          <Nav />
+
+          <Switch>
+            <Route exact path='/options' render = { props => (
+            <Options {...props} />
+            )} />
+
+            <Route exact path='/yoga/:pose' render = { props => (
+            <Yoga {...props} />
+            )} />
+          </Switch>
+  
+             </div>
+
+      </Router>
+      
+    );
+
+  }
+
+  
 }
 
 export default App;
