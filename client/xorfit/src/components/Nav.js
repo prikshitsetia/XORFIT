@@ -8,15 +8,13 @@ export default class Nav extends Component {
     render() {
                return (
 
-                
-
                 <div className="container-fluid" style={{background:"black"}}>
                     <Router>
                         
                         <nav className="navbar navbar-expand-lg navbar-dark">
                             <ul className="navbar-nav ml-auto">
 
-                            <Link to="/options">
+                            <Link to="/">
                                 <li className="nav-item">
                                     Home 
                                 </li>
@@ -28,20 +26,11 @@ export default class Nav extends Component {
                             </li>
                             <li className="nav-item">
                                 Logout 
-                            </li>
-
-                           
-
+                            </li>    
                             </ul>
-
-
-                        </nav>
-
-                                            
+                        </nav>           
                     </Router>
-                
-                
-            </div>
-                    )
+                </div>
+            )
     }
 }

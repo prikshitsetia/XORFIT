@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import yoga from '../yoga1.jpg'
+import Nav from './Nav'
 
 export default class Options extends Component {
     constructor(props) {

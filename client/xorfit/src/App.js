@@ -1,7 +1,9 @@
-import './App.css';
 import Nav from './components/Nav'
 import Options from './components/Options'
 import Yoga from './components/Yoga'
+import Home from './components/Home'
+import Register from './components/Register';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,9 +27,19 @@ class  App extends Component {
     return (
       <Router>
         <div className="App">
-          <Nav />
+        <Route exact path='/' render = { props => (
+            <Home {...props} />
+            )} />
+          
 
           <Switch>
+
+          <Route exact path='/register' render = { props => (
+            <Register {...props} />
+            )} />
+          
+
+
             <Route exact path='/options' render = { props => (
             <Options {...props} />
             )} />
