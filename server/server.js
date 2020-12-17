@@ -6,9 +6,12 @@ const app = express();
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 app.use(cors());
+app.use(bodyParser);
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static("public"));
 
+app.use(allowCrossDomain);
 mongoose.connect("mongodb://localhost:27017/xorfit", {
   useNewUrlParser: true,
 });
@@ -59,9 +62,8 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/signup", (req, res) => {
+  console.log("hello");
   bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
-    // Store hash in your password DB.
-    console.log(req.body);
     const newUser = {
       name: req.body.name,
       email: req.body.email,

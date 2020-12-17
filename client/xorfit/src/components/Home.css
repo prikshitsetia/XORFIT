@@ -1,0 +1,19 @@
+.login-block{
+    height: 100vh;
+ 
+    /* background: url("https://i.pinimg.com/originals/f9/a6/bd/f9a6bd2144d169f1c55f624283ac1a82.jpg"); */
+    /* background : url("https://wallpaperaccess.com/full/139060.jpg"); */
+    /* background : url("https://i.pinimg.com/originals/1d/b1/09/1db109430bd91759423ca10d6f6c54cb.jpg"); */
+    /* background : url("https://thirdstreetsouth.com/wp-content/uploads/2018/01/yoga-beach-sunset_cropped.jpg"); */
+    /* background : url("https://ak.picdn.net/shutterstock/videos/34006588/thumb/1.jpg"); */
+    background : url("https://img.huffingtonpost.com/asset/5e6fe9d623000005233a362e.jpeg?cache=W9p01VPZkf&ops=1778_1000");
+    /* background : url("https://www.healthshots.com/wp-content/uploads/2020/03/work-from-home-corona.jpg"); */
+    background-size : cover;
+}
+
+.login{
+    height: 100vh;
+    float: left;
+    /* float: right; */
+    margin-right: 10%;
+}
