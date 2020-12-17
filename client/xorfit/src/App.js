@@ -1,29 +1,18 @@
-import Nav from './components/Nav'
-import Options from './components/Options'
-import Yoga from './components/Yoga'
-import Home from './components/Home'
-import Register from './components/Register';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
- 
-} from "react-router-dom";
-import React, { Component } from 'react'
-class  App extends Component {
-
+import Nav from "./components/Nav";
+import Options from "./components/Options";
+import Yoga from "./components/Yoga";
+import Meditation from "./components/Meditation";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { Component } from "react";
+class App extends Component {
   constructor(props) {
-    super(props)
-  
-    this.state = {
-       
-    }
+    super(props);
+
+    this.state = {};
   }
-  
 
-  render(){
-
+  render() {
     return (
       <Router>
         <div className="App">
@@ -37,8 +26,6 @@ class  App extends Component {
           <Route exact path='/register' render = { props => (
             <Register {...props} />
             )} />
-          
-
 
             <Route exact path='/options' render = { props => (
             <Options {...props} />
@@ -47,17 +34,17 @@ class  App extends Component {
             <Route exact path='/yoga/:pose' render = { props => (
             <Yoga {...props} />
             )} />
+        
+            <Route
+              exact
+              path="/meditation"
+              render={(props) => <Meditation {...props} />}
+            />
           </Switch>
-  
-             </div>
-
+        </div>
       </Router>
-      
     );
-
   }
-
-  
 }
 
 export default App;
