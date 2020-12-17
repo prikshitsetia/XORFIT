@@ -3,6 +3,8 @@ import Nav from "./components/Nav";
 import Options from "./components/Options";
 import Yoga from "./components/Yoga";
 import Meditation from "./components/Meditation";
+import Home from "./components/Home";
+import Register from "./components/Register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React, { Component } from "react";
 class App extends Component {
@@ -31,7 +33,7 @@ class App extends Component {
             <Options {...props} />
             )} />
 
-            <Route exact path='/yoga/:pose' render = { props => (
+            <Route exact path='/yoga' render = { props => (
             <Yoga {...props} />
             )} />
         

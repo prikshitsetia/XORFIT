@@ -27,6 +27,99 @@
   font-family: "Catamaran";
 }
 
+#alarm-dialog{
+  width:500px;
+  background-size: cover;
+	background-color:rgb(60,174,163,0.5);
+	border-radius:2px;
+	box-shadow: 0 0 8px rgba(0,0,0,0.2);
+	/* position:fixed; */
+  text-align:center;
+  padding-bottom: 10px;
+}
+#alarm-dialog h2, #activity-dialog h2{
+	text-transform: uppercase;
+	font-size:25px;
+  color:#062F4F !important;
+  font-weight: bold;
+	padding: 10px 0;
+}
+
+#alarm-dialog label{
+	text-transform: uppercase;
+	background-color: #fdebeb;
+	width: 80px;
+	/* height: 62px; */
+	font-size: 11px;
+	display: inline-block;
+	padding: 10px;
+	margin: 4px;
+}
+
+#alarm-dialog label input{
+	display: block;
+	border: 0;
+	font: inherit;
+	font-size: 17px;
+	padding: 6px;
+	outline: none;
+	text-align: center;
+  width: 59px;
+  height: 70px;
+	margin: 10px auto;
+	background-color:#fff;
+}
+#alarm-colon{
+  font-size:18;
+  font-weight: bold;
+}
+#alarm-dialog .button-holder{
+	margin-top: 20px;
+	padding-bottom:0;
+}
+
+.btn-alarm{
+  margin: 5px;
+  background-color: #a30a3a !important;
+  color: white !important;
+}
+
+.btn-alarm:hover{
+  background-color: white !important;
+  color: black !important;
+}
+
+#activity-dialog{
+  margin-top: 20px;
+  width:500px;
+  background-size: cover;
+	background-color:rgb(60,174,163,0.5);
+	border-radius:2px;
+	box-shadow: 0 0 8px rgba(0,0,0,0.2);
+	/* position:fixed; */
+  text-align:center;
+  padding-bottom: 5px;
+}
+
+#med-dialog{
+  margin-top: 20px;
+  width:500px;
+  background-size: cover;
+	background-color: #fdebeb;
+	border-radius:2px;
+	box-shadow: 0 0 8px rgba(0,0,0,0.2);
+	/* position:fixed; */
+  text-align:center;
+  padding-bottom: 5px;
+}
+#med-dialog h2{
+	text-transform: uppercase;
+	font-size:18px;
+  color:#062F4F !important;
+  font-weight: bold;
+	padding: 5px 0;
+}
+
 .imageAnim {
   animation: leaves 5s ease-in-out infinite alternate;
   margin-left: 80px;
