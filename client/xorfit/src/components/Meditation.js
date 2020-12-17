@@ -4,16 +4,25 @@ import Player from "./Player";
 function Meditation() {
   const [songs] = useState([
     {
-      title: "Meethi Boliyan",
-      artist: "Amit Trivedi",
+      title: "Mindfullness",
+      artist: "Help Guide",
       img_src: "./images/song-1.jpg",
       src: "./audioFile/song1.mp3",
+      time: 5,
     },
     {
-      title: "Shukr Tera",
-      artist: "Artist 2",
+      title: "Breathing Meditation",
+      artist: "Help Guide",
       img_src: "./images/song-2.jpg",
       src: "./audioFile/song2.mp3",
+      time: 10,
+    },
+    {
+      title: "Breathing Meditation",
+      artist: "Help Guide",
+      img_src: "./images/song-2.jpg",
+      src: "./audioFile/song3.mp3",
+      time: 5,
     },
   ]);
 
@@ -31,13 +40,30 @@ function Meditation() {
   }, [currentSongIndex]);
 
   return (
-    <div className="app">
-      <Player
-        currentSongIndex={currentSongIndex}
-        setCurrentSongIndex={setCurrentSongIndex}
-        nextSongIndex={nextSongIndex}
-        songs={songs}
-      />
+    <div className="row">
+      <div class="card text-white bg-primary mb-3 col">
+        <div class="card-header"> Play List</div>
+        <div class="card-body">
+          {songs.map((s) => {
+            return (
+              <div className="mt-3">
+                <h5 class="card-title">{s.title}</h5>
+                <p class="card-text">
+                  {s.artist} {s.time}:00
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="app col">
+        <Player
+          currentSongIndex={currentSongIndex}
+          setCurrentSongIndex={setCurrentSongIndex}
+          nextSongIndex={nextSongIndex}
+          songs={songs}
+        />
+      </div>
     </div>
   );
 }
