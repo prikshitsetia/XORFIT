@@ -17,16 +17,6 @@ export default class Options extends Component {
     };
   }
 
-  handleSubmit = async (e) => {
-    e.preventDefault();
-
-    console.log(this.state);
-
-    if (this.state.option === "yoga") {
-      this.props.history.push("/yoga/:treePose");
-    }
-  };
-
   handelChange = (e) => {
     this.setState({ option: e.target.name });
     if (e.target.name === "yogaButton") {
@@ -44,7 +34,7 @@ export default class Options extends Component {
 
   onMedClick = (e) =>{
     console.log(e.target.name);
-    this.props.history.push("/meditation");
+    this.props.history.push("/meditation/"+e.target.name);
   }
 
   setClock = (e) => {

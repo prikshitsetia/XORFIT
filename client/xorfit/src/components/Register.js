@@ -37,7 +37,7 @@ export default class Register extends Component {
     console.log(this.state.input);
     const params = {
       email: this.state.input.emailAddress,
-      name: this.state.input.firstName + this.state.input.lastName,
+      name: this.state.input.firstName +" "+ this.state.input.lastName,
       password: this.state.input.password,
       phone: this.state.input.phone,
       weight: this.state.input.weight,
@@ -52,8 +52,11 @@ export default class Register extends Component {
     axios.post(this.state.link, qs.stringify(params), config).then(
       (response) => {
         console.log(response);
+        alert("Welcome to XorFit")
+        this.props.history.push("/");
       },
       (error) => {
+        alert("Please try again later")
         console.log(error);
       }
     );
