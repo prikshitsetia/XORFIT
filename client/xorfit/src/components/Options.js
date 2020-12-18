@@ -37,7 +37,7 @@ export default class Options extends Component {
             console.log(response.data);
             let poseLink = response.data.poseLink;
             let poseName = response.data.poseName;
-            window.location.href = `https://72fa6adf50b3.ngrok.io/pose?poseName=${poseName}&poseLink=${poseLink}`;
+            window.location.href = `https://6f4fb6b81471.ngrok.io/pose?poseName=${poseName}&poseLink=${poseLink}`;
           },
           (error) => {
             alert("Please try again later");

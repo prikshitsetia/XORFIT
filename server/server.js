@@ -8,7 +8,7 @@ const saltRounds = 10;
 app.use(cors());
 const path = require("path");
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(express.static("public"));
@@ -90,18 +90,19 @@ app.post("/signup", (req, res) => {
   });
 });
 app.post("/pose", (req, res) => {
-  console.log(req.body);
   const pose = req.body.pose;
   Pose.findOne({ poseName: pose }, (err, result) => {
     if (err) {
       console.log(err);
     } else {
+      console.log(result);
       Pose.findOne({ poseName: result.nextPose }, (error, resultPose) => {
         if (error) {
           console.log(error);
         } else {
           let poseName = resultPose.poseName;
           let poseLink = resultPose.poseLink;
+          console.log(poseName, poseLink);
           return res.json({ poseLink: poseLink, poseName: poseName });
         }
       });
@@ -130,6 +131,7 @@ app.post("/pose", (req, res) => {
 //     }
 //   });
 // });
+
 app.get("/pose", async (req, res, next) => {
   let poseName = req.query.poseName;
   let poseLink = req.query.poseLink;
