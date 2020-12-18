@@ -7,6 +7,7 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 app.use(cors());
 const path = require("path");
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -88,7 +89,6 @@ app.post("/signup", (req, res) => {
     });
   });
 });
-
 app.post("/pose", (req, res) => {
   console.log(req.body);
   const pose = req.body.pose;
@@ -96,22 +96,51 @@ app.post("/pose", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(result);
-      Pose.findOne({ poseName: result.poseName }, (error, resultPose) => {
+      Pose.findOne({ poseName: result.nextPose }, (error, resultPose) => {
         if (error) {
           console.log(error);
         } else {
-          return res.render(path.join(__dirname, "learn.ejs"), {
-            data: resultPose.poseLink,
-            name: resultPose.poseName,
-          });
+          let poseName = resultPose.poseName;
+          let poseLink = resultPose.poseLink;
+          return res.json({ poseLink: poseLink, poseName: poseName });
         }
       });
     }
   });
 });
 
+// app.post("/pose", (req, res) => {
+//   const pose = req.body.pose;
+//   Pose.findOne({ poseName: pose }, (err, result) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       Pose.findOne({ poseName: result.nextPose }, (error, resultPose) => {
+//         console.log(resultPose.poseName);
+//         if (error) {
+//           console.log(error);
+//         } else {
+//           let poseName = resultPose.poseName;
+//           let poseLink = resultPose.poseLink;
+//           return res.redirect(
+//             `/pose?poseName=${poseName}&poseLink=${poseLink}`
+//           );
+//         }
+//       });
+//     }
+//   });
+// });
+app.get("/pose", async (req, res, next) => {
+  let poseName = req.query.poseName;
+  let poseLink = req.query.poseLink;
+  console.log(poseName, poseLink);
+  return res.render(path.join(__dirname, "learn.ejs"), {
+    data: poseLink,
+    name: poseName,
+  });
+});
 app.listen(3001, "0.0.0.0", function () {
   console.log("Server started at port 3001");
 });
+
 //https://www.pluralsight.com/guides/exposing-your-local-node-js-app-to-the-world

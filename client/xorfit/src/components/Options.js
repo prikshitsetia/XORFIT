@@ -29,12 +29,15 @@ export default class Options extends Component {
       axios
         .post(
           "https://72fa6adf50b3.ngrok.io/pose",
-          qs.stringify({ pose: "meditation" }),
+          qs.stringify({ pose: "vrakshasana" }),
           config
         )
         .then(
           (response) => {
-            console.log(response);
+            console.log(response.data);
+            let poseLink = response.data.poseLink;
+            let poseName = response.data.poseName;
+            window.location.href = `https://72fa6adf50b3.ngrok.io/pose?poseName=${poseName}&poseLink=${poseLink}`;
           },
           (error) => {
             alert("Please try again later");

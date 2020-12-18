@@ -6,8 +6,8 @@ import Home from "./components/Home";
 import Register from "./components/Register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React, { Component } from "react";
-import XorFit from './XorFit';
-import './App.css'
+import XorFit from "./XorFit";
+import "./App.css";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -15,12 +15,10 @@ class App extends Component {
     this.state = {};
   }
 
-
   render() {
     return (
       <Router>
         <div className="App">
-                 
           <Route exact path="/" render={(props) => <Home {...props} />} />
 
           <Switch>
@@ -48,9 +46,6 @@ class App extends Component {
               path="/practicePose"
               render={(props) => <XorFit {...props} />}
             />
-
-
-           
           </Switch>
         </div>
       </Router>
