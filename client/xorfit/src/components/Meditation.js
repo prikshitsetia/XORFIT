@@ -23,7 +23,7 @@ function Meditation() {
       img_src: "/images/song-4.jpg",
       src: "/audioFile/song2.mp3",
       category: "mindfullness",
-      time: 10,
+      time: 5,
     },
     {
       title: "Breathing Meditation",
@@ -38,7 +38,6 @@ function Meditation() {
   const selectedSongs = songs.filter((s) => {
     return s.category == locationVariable[2];
   });
-  console.log(typeof [selectedSongs]);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(0);
 
