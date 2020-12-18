@@ -95,17 +95,16 @@ app.post("/pose", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      Pose.findOne({poseName:result.poseName},(error,resultPose)=>{
-        if(error){
+      Pose.findOne({ poseName: result.poseName }, (error, resultPose) => {
+        if (error) {
           console.log(error);
-        }else{
+        } else {
           return res.render(path.join(__dirname, "learn.ejs"), {
             data: resultPose.poseLink,
             name: resultPose.poseName,
-        
+          });
         }
-      })
-        });
+      });
     }
   });
 });

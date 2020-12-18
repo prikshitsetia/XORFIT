@@ -16,6 +16,7 @@ function Controls(props) {
       <button
         className="play-btn"
         onClick={() => props.setIsPlaying(!props.isPlaying)}
+        
       >
         <FontAwesomeIcon icon={props.isPlaying ? faPause : faPlay} />
       </button>

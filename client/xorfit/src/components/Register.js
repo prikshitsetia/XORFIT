@@ -7,7 +7,7 @@ export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      link: "https://0ebe9f971a9e.ngrok.io/signup",
+      link: "https://809feafcdee6.ngrok.io/signup",
       input: {
         firstName: "",
         lastName: "",
@@ -48,7 +48,13 @@ export default class Register extends Component {
         "Content-Type": "application/x-www-form-urlencoded",
       },
     };
-    console.log(params);
+   if(this.state.input.phone.length!==10){
+     alert("Please enter valid phone number");
+   }
+   else if(this.state.input.password !== this.state.input.confirmPassword){
+     alert("Password does not match!");
+   }
+   else{
     axios.post(this.state.link, qs.stringify(params), config).then(
       (response) => {
         console.log(response);
@@ -60,6 +66,8 @@ export default class Register extends Component {
         console.log(error);
       }
     );
+   }
+   
     event.preventDefault();
   };
   render() {

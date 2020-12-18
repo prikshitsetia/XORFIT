@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export default class Options extends Component {
   constructor(props) {
     super(props);
-
+    this.myRef = React.createRef();
     this.state = {
       min: "0",
       sec: "0",
@@ -38,11 +38,11 @@ export default class Options extends Component {
     this.setState({
       time: this.state.min + ":" + this.state.sec,
     });
-    console.log(this.state.time);
+    e.target.style.display = "none";
   };
 
   onTimeChange = (e) => {
-    console.log(e.target);
+    // console.log(e.target)
     if (e.target.value <= 60) {
       this.setState({
         [e.target.name]: e.target.value,
@@ -97,6 +97,7 @@ export default class Options extends Component {
                   className="btn btn-alarm"
                   style={{ width: "20%" }}
                   onClick={this.setClock}
+                  ref={this.myRef}
                 >
                   Set
                 </button>
@@ -105,6 +106,7 @@ export default class Options extends Component {
                   className="btn btn-alarm"
                   style={{ width: "20%" }}
                   onClick={() => {
+                    this.myRef.current.style.display = "inline";
                     this.setState({
                       min: 0,
                       sec: 0,
