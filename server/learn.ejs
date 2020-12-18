@@ -411,7 +411,7 @@ function modelLoaded()
                if( now < next){
                    now = next+1;
                     localStorage.setItem("counter",String(timeleft-counter))
-                    fetch('https://localhost:3001/pose', {
+                    fetch('https://72fa6adf50b3.ngrok.io/pose', {
                             method: 'POST', // or 'PUT'
                             headers: {
                             'Content-Type': "application/x-www-form-urlencoded",

@@ -3,8 +3,10 @@ import yoga from "../yoga1.jpg";
 import yogaButton from "../yoga-button.png";
 import meditationButton from "../meditation-button.png";
 import excerciseButton from "../excercise-button.png";
+import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
+const qs = require("querystring");
 export default class Options extends Component {
   constructor(props) {
     super(props);
@@ -17,9 +19,36 @@ export default class Options extends Component {
     };
   }
   handelChange = (e) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    };
     this.setState({ option: e.target.name });
     if (e.target.name === "yogaButton") {
-      this.props.history.push("/yoga");
+      axios
+        .post(
+          "https://72fa6adf50b3.ngrok.io/pose",
+          qs.stringify({ pose: "meditation" }),
+          config
+        )
+        .then(
+          (response) => {
+            console.log(response);
+          },
+          (error) => {
+            alert("Please try again later");
+            console.log(error);
+          }
+        );
+
+      // fetch("https://72fa6adf50b3.ngrok.io/pose", {
+      //   method: "POST", // or 'PUT'
+      //   headers: {
+      //     "Content-Type": "application/x-www-form-urlencoded",
+      //   },
+      //   body: ,
+      // });
     } else if (e.target.name === "excerciseButton") {
       this.props.history.push("/excercise");
     } else {
@@ -54,7 +83,7 @@ export default class Options extends Component {
 
   render() {
     return (
-      <div style={{background:"white",height:"100%"}}>
+      <div style={{ background: "white", height: "100%" }}>
         <br />
         <div className="row">
           <div className="col-md-6">

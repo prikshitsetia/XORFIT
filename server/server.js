@@ -90,11 +90,13 @@ app.post("/signup", (req, res) => {
 });
 
 app.post("/pose", (req, res) => {
+  console.log(req.body);
   const pose = req.body.pose;
   Pose.findOne({ poseName: pose }, (err, result) => {
     if (err) {
       console.log(err);
     } else {
+      console.log(result);
       Pose.findOne({ poseName: result.poseName }, (error, resultPose) => {
         if (error) {
           console.log(error);
