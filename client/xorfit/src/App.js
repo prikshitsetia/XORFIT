@@ -1,4 +1,3 @@
-import Nav from "./components/Nav";
 import Options from "./components/Options";
 import Yoga from "./components/Yoga";
 import Meditation from "./components/Meditation";
@@ -38,7 +37,7 @@ class App extends Component {
 
             <Route
               exact
-              path="/meditation"
+              path="/meditation/:category"
               render={(props) => <Meditation {...props} />}
             />
             <Route
