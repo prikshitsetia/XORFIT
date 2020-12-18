@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
 import Player from "./Player";
 
+import { useLocation } from "react-router-dom";
+
 function Meditation() {
+  let location = useLocation();
+  const locationVariable = location.pathname.split("/");
+  console.log(locationVariable);
   const [songs] = useState([
     {
       title: "Mindfullness",
       artist: "Help Guide",
-      img_src: "./images/song-1.jpg",
+      img_src: process.env.PUBLIC_URL + "./images/song-1.jpg",
       src: "./audioFile/song1.mp3",
+      category: "stress",
       time: 5,
     },
     {
@@ -15,6 +21,7 @@ function Meditation() {
       artist: "Help Guide",
       img_src: "./images/song-2.jpg",
       src: "./audioFile/song2.mp3",
+      category: "mindfullness",
       time: 10,
     },
     {
@@ -22,6 +29,7 @@ function Meditation() {
       artist: "Help Guide",
       img_src: "./images/song-2.jpg",
       src: "./audioFile/song3.mp3",
+      category: "anxiety",
       time: 5,
     },
   ]);
@@ -51,6 +59,7 @@ function Meditation() {
                 <p class="card-text">
                   {s.artist} {s.time}:00
                 </p>
+                <p class="card-text">{s.category}</p>
               </div>
             );
           })}

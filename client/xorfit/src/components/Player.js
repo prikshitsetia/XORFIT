@@ -13,7 +13,7 @@ function Player(props) {
       audioEl.current.pause();
     }
   });
-
+  console.log(props.songs[props.currentSongIndex].src);
   const SkipSong = (forwards = true) => {
     if (forwards) {
       props.setCurrentSongIndex(() => {
