@@ -12,29 +12,33 @@ function Meditation() {
     {
       title: "Mindfullness",
       artist: "Help Guide",
-      img_src: "./images/song-3.jpg",
-      src: "./audioFile/song1.mp3",
+      img_src: "/images/song-3.jpg",
+      src: "/audioFile/song1.mp3",
       category: "stress",
       time: 5,
     },
     {
       title: "Breathing Meditation",
       artist: "Help Guide",
-      img_src: "./images/song-4.jpg",
-      src: "./audioFile/song2.mp3",
+      img_src: "/images/song-4.jpg",
+      src: "/audioFile/song2.mp3",
       category: "mindfullness",
       time: 10,
     },
     {
       title: "Breathing Meditation",
       artist: "Help Guide",
-      img_src: "./images/song-2.jpg",
-      src: "./audioFile/song3.mp3",
+      img_src: "/images/song-2.jpg",
+      src: "/audioFile/song3.mp3",
       category: "anxiety",
       time: 5,
     },
   ]);
 
+  const selectedSongs = songs.filter((s) => {
+    return s.category == locationVariable[2];
+  });
+  console.log(typeof [selectedSongs]);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(0);
 
@@ -52,7 +56,7 @@ function Meditation() {
     <div className="row">
       <div className="col-md-4">
         <div
-          class="card"
+          className="card"
           style={{
             width: "80%",
             height: "100vh",
@@ -61,7 +65,7 @@ function Meditation() {
             background: "#062F4F",
           }}
         >
-          <div class="card-body">
+          <div className="card-body">
             <h4
               style={{
                 textAlign: "center",
@@ -73,7 +77,7 @@ function Meditation() {
               Play List
             </h4>
             <br />
-            {songs.map((s) => {
+            {selectedSongs.map((s) => {
               return (
                 <div className="mt-3">
                   <div className="row" style={{}}>
@@ -89,9 +93,9 @@ function Meditation() {
                       />
                     </div>
                     <div className="col" style={{ color: "white" }}>
-                      <h5 class="card-title">{s.title}</h5>
+                      <h5 className="card-title">{s.title}</h5>
                       <p
-                        class="card-text"
+                        className="card-text"
                         style={{
                           marginTop: "-10px",
                           fontSize: "14px",
@@ -119,7 +123,7 @@ function Meditation() {
           currentSongIndex={currentSongIndex}
           setCurrentSongIndex={setCurrentSongIndex}
           nextSongIndex={nextSongIndex}
-          songs={songs}
+          songs={selectedSongs}
         />
       </div>
     </div>
