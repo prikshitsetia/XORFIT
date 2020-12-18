@@ -3,11 +3,10 @@ import yoga from "../yoga1.jpg";
 import yogaButton from "../yoga-button.png";
 import meditationButton from "../meditation-button.png";
 import excerciseButton from "../excercise-button.png";
-import { Link } from 'react-router-dom'
-import axios from 'axios'
+import ReactDOM from "react-dom";
+import { Link } from "react-router-dom";
+import axios from "axios";
 const qs = require("querystring");
-
-
 export default class Options extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +21,11 @@ export default class Options extends Component {
   }
 
   handelChange = (e) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    };
     this.setState({ option: e.target.name });
     if (e.target.name === "yogaButton") {
       this.setState({showYogaOptions: true,showMedOptions: false})
@@ -100,7 +104,7 @@ export default class Options extends Component {
 
   render() {
     return (
-      <div style={{background:"white",height:"100%"}}>
+      <div style={{ background: "white", height: "100%" }}>
         <br />
         <div className="row" >
           <div className="col-md-6">

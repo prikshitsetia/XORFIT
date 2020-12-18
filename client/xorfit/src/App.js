@@ -6,15 +6,14 @@ import Home from "./components/Home";
 import Register from "./components/Register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React, { Component } from "react";
-import XorFit from './XorFit';
-import './App.css'
+import XorFit from "./XorFit";
+import "./App.css";
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {};
   }
-
 
   render() {
     return (
@@ -41,7 +40,7 @@ class App extends Component {
 
             <Route
               exact
-              path="/meditation"
+              path="/meditation/:category"
               render={(props) => <Meditation {...props} />}
             />
             <Route
@@ -49,9 +48,6 @@ class App extends Component {
               path="/practicePose"
               render={(props) => <XorFit {...props} />}
             />
-
-
-           
           </Switch>
         </div>
       </Router>

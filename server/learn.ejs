@@ -411,13 +411,21 @@ function modelLoaded()
                if( now < next){
                    now = next+1;
                     localStorage.setItem("counter",String(timeleft-counter))
-                    fetch('https://localhost:3001/pose', {
+                    console.log("inside loop")
+                    let temp={pose:currentImage}
+                    fetch('https://72fa6adf50b3.ngrok.io/pose', {
                             method: 'POST', // or 'PUT'
                             headers: {
-                            'Content-Type': "application/x-www-form-urlencoded",
+                            'Content-Type': "application/json",
                             },
-                            body:currentImage ,
-                        })
+                            body: JSON.stringify(temp),
+                        }).then(response){
+                            console.log(response);
+            let poseLink = response.data.poseLink;
+            let poseName = response.data.poseName;
+            window.location.href = `https://72fa6adf50b3.ngrok.io/pose?poseName=${poseName}&poseLink=${poseLink}`;
+  
+                        }
                     }
                 }
             })
