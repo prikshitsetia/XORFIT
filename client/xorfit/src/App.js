@@ -15,10 +15,12 @@ class App extends Component {
     this.state = {};
   }
 
+
   render() {
     return (
       <Router>
         <div className="App">
+                 
           <Route exact path="/" render={(props) => <Home {...props} />} />
 
           <Switch>
@@ -38,7 +40,7 @@ class App extends Component {
 
             <Route
               exact
-              path="/meditation"
+              path="/meditation/:category"
               render={(props) => <Meditation {...props} />}
             />
             <Route

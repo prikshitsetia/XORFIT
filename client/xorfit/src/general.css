@@ -1,25 +1,6 @@
 .nav_wrapper {
-  background: black;
-  color: white;
-  height: 40px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-around;
-  text-align: right;
-}
-
-.nav-item {
-  color: white;
-  font-family: "Catamaran";
-  padding-left: 15px;
-  padding-right: 15px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.nav-item:hover {
-  background: #882601;
-  border-radius: 8px;
+ /* background-color:rgb(6,47,79,0.2); */
+ background-image: linear-gradient(to left, rgba(167, 209, 241, 0.4) , white);
 }
 
 .OptionForm {

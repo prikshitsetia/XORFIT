@@ -12,24 +12,24 @@ function Meditation() {
     {
       title: "Mindfullness",
       artist: "Help Guide",
-      img_src: "./images/song-3.jpg",
-      src: "./audioFile/song1.mp3",
+      img_src: "/images/song-3.jpg",
+      src: "/audioFile/song1.mp3",
       category: "stress",
       time: 5,
     },
     {
       title: "Breathing Meditation",
       artist: "Help Guide",
-      img_src: "./images/song-4.jpg",
-      src: "./audioFile/song2.mp3",
+      img_src: "/images/song-4.jpg",
+      src: "/audioFile/song2.mp3",
       category: "mindfullness",
       time: 10,
     },
     {
       title: "Breathing Meditation",
       artist: "Help Guide",
-      img_src: "./images/song-2.jpg",
-      src: "./audioFile/song3.mp3",
+      img_src: "/images/song-2.jpg",
+      src: "/audioFile/song3.mp3",
       category: "anxiety",
       time: 5,
     },
@@ -51,8 +51,8 @@ function Meditation() {
   return (
     <div className="row" style={{background:"white",height:"100%"}}>
       <div className="col-md-4" >
-      <div class="card" style={{zIndex:"1",width:"80%",height:"100%",borderRadius:"0px",background:"#755139FF"}} >
-        <div class="card-body">
+      <div className="card" style={{zIndex:"1",width:"80%",height:"100%",borderRadius:"0px",background:"#755139FF"}} >
+        <div className="card-body">
           <h4 style={{textAlign:"center",marginTop:"10px",fontWeight:"bold",color:"white"}}>Play List</h4>
           <br/>
           {songs.map((s) => {
@@ -63,8 +63,8 @@ function Meditation() {
                   <img src={s.img_src} alt="" style={{width:"50px",height:"50px",borderRadius:"30px"}}/>
                   </div>
                   <div className="col" style={{color:"white"}}>
-                    <h5 class="card-title"  >{s.title}</h5>
-                    <p class="card-text" style={{marginTop:"-10px",fontSize:"14px",marginBottom:"10px"}}>
+                    <h5 className="card-title"  >{s.title}</h5>
+                    <p className="card-text" style={{marginTop:"-10px",fontSize:"14px",marginBottom:"10px"}}>
                       {s.artist}  ( {s.time}:00 ) Mins
                     </p>
                   </div>
