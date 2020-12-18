@@ -55,9 +55,10 @@ function Meditation() {
           class="card"
           style={{
             width: "80%",
-            height: "100%",
+            height: "100vh",
             borderRadius: "0px",
-            background: "#755139FF",
+            // background: "#755139FF",
+            background: "#062F4F",
           }}
         >
           <div class="card-body">
