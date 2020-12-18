@@ -52,16 +52,16 @@ function Meditation() {
   }, [currentSongIndex]);
 
   return (
-    <div className="row">
+    <div className="row" style={{ background: "white", height: "100%" }}>
       <div className="col-md-4">
         <div
           className="card"
           style={{
+            zIndex: "1",
             width: "80%",
-            height: "100vh",
+            height: "100%",
             borderRadius: "0px",
-            // background: "#755139FF",
-            background: "#062F4F",
+            background: "#755139FF",
           }}
         >
           <div className="card-body">
