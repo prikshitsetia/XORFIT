@@ -34,11 +34,8 @@ class App extends Component {
               render={(props) => <Options {...props} />}
             />
 
+            <Route exact path="/yoga" render={(props) => <Yoga {...props} />} />
 
-           <Route exact path='/yoga' render = { props => (
-            <Yoga {...props} />
-            )} />
-        
             <Route
               exact
               path="/meditation"

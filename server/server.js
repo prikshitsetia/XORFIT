@@ -6,12 +6,13 @@ const app = express();
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 app.use(cors());
-app.use(bodyParser);
+const path = require("path");
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 app.use(express.static("public"));
 
-app.use(allowCrossDomain);
+//app.use(allowCrossDomain);
 mongoose.connect("mongodb://localhost:27017/xorfit", {
   useNewUrlParser: true,
 });
@@ -24,8 +25,14 @@ const userSchema = {
   weight: Number,
   height: Number,
 };
+const poseSchema = {
+  poseName: String,
+  poseLink: String,
+  nextPose: String,
+};
 
 const User = mongoose.model("User", userSchema);
+const Pose = mongoose.model("Pose", poseSchema);
 
 app.get("/", (req, res) => {
   User.find((err, result) => {
@@ -79,6 +86,26 @@ app.post("/signup", (req, res) => {
         res.send("1");
       }
     });
+  });
+});
+
+app.post("/pose", (req, res) => {
+  const pose = req.body.pose;
+  Pose.findOne({ poseName: pose }, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      Pose.findOne({ poseName: result.poseName }, (error, resultPose) => {
+        if (error) {
+          console.log(error);
+        } else {
+          return res.render(path.join(__dirname, "learn.ejs"), {
+            data: resultPose.poseLink,
+            name: resultPose.poseName,
+          });
+        }
+      });
+    }
   });
 });
 
