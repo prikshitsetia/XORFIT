@@ -14,10 +14,16 @@ class App extends Component {
     this.state = {};
   }
 
+
   render() {
     return (
       <Router>
         <div className="App">
+          {
+            (window.location.pathname !== '/')?
+              <Nav></Nav> : null
+            }
+           
           <Route exact path="/" render={(props) => <Home {...props} />} />
 
           <Switch>
