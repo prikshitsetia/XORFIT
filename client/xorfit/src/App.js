@@ -40,7 +40,7 @@ class App extends Component {
         
             <Route
               exact
-              path="/meditation/:category"
+              path="/meditation"
               render={(props) => <Meditation {...props} />}
             />
           </Switch>

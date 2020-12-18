@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
 import Player from "./Player";
+import bg from '../bg.jpg'
 
 function Meditation() {
   const [songs] = useState([
     {
       title: "Mindfullness",
       artist: "Help Guide",
-      img_src: "./images/song-1.jpg",
+      img_src: "./images/song-3.jpg",
       src: "./audioFile/song1.mp3",
       time: 5,
     },
     {
       title: "Breathing Meditation",
       artist: "Help Guide",
-      img_src: "./images/song-2.jpg",
+      img_src: "./images/song-4.jpg",
       src: "./audioFile/song2.mp3",
       time: 10,
     },
@@ -40,29 +41,50 @@ function Meditation() {
   }, [currentSongIndex]);
 
   return (
-    <div className="row">
-      <div class="card text-white bg-primary mb-3 col">
-        <div class="card-header"> Play List</div>
+    <div className="row" >
+      <div className="col-md-4" >
+      <div class="card" style={{width:"80%",height:"100%",borderRadius:"0px",background:"#755139FF"}} >
         <div class="card-body">
+          <h4 style={{textAlign:"center",marginTop:"10px",fontWeight:"bold",color:"white"}}>Play List</h4>
+          <br/>
           {songs.map((s) => {
             return (
               <div className="mt-3">
-                <h5 class="card-title">{s.title}</h5>
-                <p class="card-text">
-                  {s.artist} {s.time}:00
-                </p>
+                <div className="row" style={{}}>
+                  <div className="col-3" >
+                  <img src={s.img_src} alt="" style={{width:"50px",height:"50px",borderRadius:"30px"}}/>
+                  </div>
+                  <div className="col" style={{color:"white"}}>
+                    <h5 class="card-title"  >{s.title}</h5>
+                    <p class="card-text" style={{marginTop:"-10px",fontSize:"14px",marginBottom:"10px"}}>
+                      {s.artist}  ( {s.time}:00 ) Mins
+                    </p>
+                  </div>
+                
+                </div>
+               
               </div>
             );
           })}
         </div>
       </div>
-      <div className="app col">
+
+      </div>
+     
+      <div className="app col" style={{marginLeft:"-130px"}}>
+        <div className="ocean">
+        <div className="wave"></div>
+        <div className="wave"></div>
+
+        </div>
+      
         <Player
           currentSongIndex={currentSongIndex}
           setCurrentSongIndex={setCurrentSongIndex}
           nextSongIndex={nextSongIndex}
           songs={songs}
         />
+        
       </div>
     </div>
   );
