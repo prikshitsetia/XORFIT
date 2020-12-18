@@ -59,7 +59,7 @@ export default class Options extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{background:"white",height:"100%"}}>
         <br />
         <div className="row">
           <div className="col-md-6">

@@ -41,9 +41,9 @@ function Meditation() {
   }, [currentSongIndex]);
 
   return (
-    <div className="row" >
+    <div className="row" style={{background:"white",height:"100%"}}>
       <div className="col-md-4" >
-      <div class="card" style={{width:"80%",height:"100%",borderRadius:"0px",background:"#755139FF"}} >
+      <div class="card" style={{zIndex:"1",width:"80%",height:"100%",borderRadius:"0px",background:"#755139FF"}} >
         <div class="card-body">
           <h4 style={{textAlign:"center",marginTop:"10px",fontWeight:"bold",color:"white"}}>Play List</h4>
           <br/>
